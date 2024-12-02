@@ -3,6 +3,7 @@
 安裝教學: https://blog.miniasp.com/post/2023/08/01/Getting-Started-with-Grafana-k6-Load-testing-tool (保哥)
 
 #### 參數說明
+<pre>
 scenario: 測試情境
 VUs: 虛擬使用者人數 (Virtual Users)
 iterations: 迭代數，也就是重複測試的次數
@@ -22,13 +23,14 @@ iteration_duration: 一次完整 iteration 的時間
 iterations: 完成幾次 iteration
 vus: 虛擬使用者人數
 vus_max: 同時最大與最小虛擬使用者人數
+</pre>
 
 #### 後端使用C#來撰寫，QueueLimit為2、每個 12 秒視窗最多允許 4 個要求。
 
 #### 簡單範例: FirstExample.js
 
 * 指令: k6 run --vus 10 --duration 5s .\FirstExample.js
-
+<pre>
  data_received..................: 24 MB  3.0 MB/s
  data_sent......................: 18 MB  2.2 MB/s
  http_req_blocked...............: avg=2.12µs   min=0s      med=0s     max=9.38ms p(90)=0s      p(95)=0s
@@ -45,12 +47,12 @@ vus_max: 同時最大與最小虛擬使用者人數
  iterations.....................: 224175 27867.86845/s
  vus............................: 2      min=2                max=10
  vus_max........................: 10     min=10               max=10
-
+</pre>
 
 #### 自訂錯誤訊息: FirstAdvncedExample.js
 
 * 指令: k6 run --vus 10 --duration 5s .\FirstAdvncedExample.js
-
+<pre>
  data_received..................: 24 MB  3.0 MB/s
  data_sent......................: 18 MB  2.2 MB/s
  http_503_responses.............: 224165 27866.62532/s
@@ -68,7 +70,7 @@ vus_max: 同時最大與最小虛擬使用者人數
  iterations.....................: 224175 27867.86845/s
  vus............................: 2      min=2                max=10
  vus_max........................: 10     min=10               max=10
-
+</pre>
 
 #### 將壓力參數寫在參數
 
@@ -78,7 +80,7 @@ vus_max: 同時最大與最小虛擬使用者人數
     scenarios: (100.00%) 1 scenario, 10 max VUs, 1m0s max duration (incl. graceful stop):
               * default: 10 looping VUs for 30s (gracefulStop: 30s)
 
-
+<pre>
     data_received..................: 147 MB  4.5 MB/s
     data_sent......................: 108 MB  3.3 MB/s
     http_503_responses.............: 1344785 41110.618058/s
@@ -96,9 +98,10 @@ vus_max: 同時最大與最小虛擬使用者人數
     iterations.....................: 1344819 41111.657452/s
     vus............................: 2       min=2                  max=10
     vus_max........................: 10      min=10                 max=10
- 
-#### 將壓力參數寫在參數(進階)
+</pre>
 
+#### 將壓力參數寫在參數(進階)
+<pre>
   data_received..................: 183 kB 1.3 kB/s
   data_sent......................: 128 kB 907 B/s
   http_503_responses.............: 1455   10.338733/s
@@ -116,4 +119,4 @@ vus_max: 同時最大與最小虛擬使用者人數
   iterations.....................: 1595   11.333525/s
   vus............................: 1      min=1            max=20
   vus_max........................: 20     min=20           max=20
-
+</pre>
